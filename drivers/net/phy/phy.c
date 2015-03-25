@@ -487,7 +487,9 @@ int phy_init(void)
 #ifdef CONFIG_PHY_VITESSE
 	phy_vitesse_init();
 #endif
-
+#ifdef CONFIG_PHY_ICPLUS
+	phy_icplus_init();
+#endif
 	return 0;
 }
 
@@ -712,7 +714,6 @@ int phy_reset(struct phy_device *phydev)
 	}
 
 	reg |= BMCR_RESET;
-
 	if (phy_write(phydev, devad, MII_BMCR, reg) < 0) {
 		debug("PHY reset failed\n");
 		return -1;
