@@ -94,6 +94,8 @@ int xilinx_ll_temac_eth_init(bd_t *bis, unsigned long base_addr, int flags,
 int zynq_gem_of_init(const void *blob);
 int zynq_gem_initialize(bd_t *bis, phys_addr_t base_addr,
 			int phy_addr, u32 emio);
+int pic32eth_initialize(bd_t *bis, ulong base_addr,
+			int phy_addr, int phyif);
 /*
  * As long as the Xilinx xps_ll_temac ethernet driver has not its own interface
  * exported by a public hader file, we need a global definition at this point.
