@@ -201,6 +201,51 @@ extern void iounmap(void *addr);
 #define memcpy_fromio(a,b,c)	memcpy((a),(void *)(b),(c))
 #define memcpy_toio(a,b,c)	memcpy((void *)(a),(b),(c))
 
+static inline void __raw_writesb(unsigned long addr, const void *data,
+				 int bytelen)
+{
+	uint8_t *buf = (uint8_t *)data;
+	while (bytelen--)
+		__raw_writeb(*buf++, addr);
+}
+
+static inline void __raw_writesw(unsigned long addr, const void *data,
+				 int wordlen)
+{
+	uint16_t *buf = (uint16_t *)data;
+	while (wordlen--)
+		__raw_writew(*buf++, addr);
+}
+
+static inline void __raw_writesl(unsigned long addr, const void *data,
+				 int longlen)
+{
+	uint32_t *buf = (uint32_t *)data;
+	while (longlen--)
+		__raw_writel(*buf++, addr);
+}
+
+static inline void __raw_readsb(unsigned long addr, void *data, int bytelen)
+{
+	uint8_t *buf = (uint8_t *)data;
+	while (bytelen--)
+		*buf++ = __raw_readb(addr);
+}
+
+static inline void __raw_readsw(unsigned long addr, void *data, int wordlen)
+{
+	uint16_t *buf = (uint16_t *)data;
+	while (wordlen--)
+		*buf++ = __raw_readw(addr);
+}
+
+static inline void __raw_readsl(unsigned long addr, void *data, int longlen)
+{
+	uint32_t *buf = (uint32_t *)data;
+	while (longlen--)
+		*buf++ = __raw_readl(addr);
+}
+
 /* END SNI HACKS ... */
 
 /*
