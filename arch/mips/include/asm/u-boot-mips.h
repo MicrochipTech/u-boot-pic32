@@ -21,3 +21,8 @@ static inline unsigned long image_copy_end(void)
 	extern char __image_copy_end[];
 	return (unsigned long) &__image_copy_end;
 }
+
+/* cpu/.../arch/cpu.c */
+int     arch_cpu_init(void);
+int     arch_misc_init(void);
+int     arch_early_init_r(void);
