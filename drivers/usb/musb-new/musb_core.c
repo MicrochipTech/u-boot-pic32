@@ -988,7 +988,9 @@ static void musb_generic_disable(struct musb *musb)
 	musb_writew(mbase, MUSB_INTRRXE, 0);
 
 	/* off */
+#ifndef CONFIG_USB_MUSB_PIC32
 	musb_writeb(mbase, MUSB_DEVCTL, 0);
+#endif
 
 	/*  flush pending interrupts */
 	temp = musb_readb(mbase, MUSB_INTRUSB);
