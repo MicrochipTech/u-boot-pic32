@@ -1,0 +1,11 @@
+/*
+ * (c) 2015 Purna Chandra Mandal <purna.mandal@microchip.com>
+ */
+
+Microchip PIC32MZ[DA] Board
+----------------------------------------
+PIC32MZ[DA] is  Microchip PIC32 SoC powered by MIPS M14KEC 32bit microAptive core.
+
+Usage, Limitations, and Comments
+----------------------------------------
+USB, MMC, network
