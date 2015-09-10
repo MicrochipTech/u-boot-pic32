@@ -93,6 +93,13 @@ static void boot_setup_fdt(bootm_headers_t *images)
 	u64 mem_start = 0;
 	u64 mem_size = gd->ram_size;
 
+#ifdef CONFIG_SOC_PIC32
+	/* In some SoCs SDRAM doesn't start from address zero.
+	 * So fixing memory base at zero will be grossly incorrect.
+	 * Better get mem_start information from board info struct.
+	 */
+	mem_start = gd->bd->bi_memstart;
+#endif
 	debug("## setup FDT\n");
 
 	fdt_chosen(images->ft_addr);
