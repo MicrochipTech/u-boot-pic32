@@ -408,7 +408,21 @@ static void sdhci_set_ios(struct mmc *mmc)
 	if (host->quirks & SDHCI_QUIRK_NO_HISPD_BIT)
 		ctrl &= ~SDHCI_CTRL_HISPD;
 
+#if defined(CONFIG_TARGET_PIC32MZDASK)
+    /*
+     *  SDHC will not work if JTAG is not Connected.As a workaround fix,
+     *  set Card Detect Signal Selection bit in SDHC Host Control register and
+     *  clear Card Detect Test Level bit in SDHC Host Control register
+     */
+	#define SDHCI_CTRL_CDSSEL		0x80
+	#define SDHCI_CTRL_CDTLVL		0x40
+    ctrl &= ~SDHCI_CTRL_CDTLVL;
+    ctrl |= SDHCI_CTRL_CDSSEL;
+    sdhci_writeb(host, ctrl, SDHCI_HOST_CONTROL);
+#else
 	sdhci_writeb(host, ctrl, SDHCI_HOST_CONTROL);
+#endif
+
 }
 
 static int sdhci_init(struct mmc *mmc)
