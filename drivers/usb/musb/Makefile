@@ -12,3 +12,4 @@ obj-$(CONFIG_USB_DAVINCI) += davinci.o
 obj-$(CONFIG_USB_OMAP3) += omap3.o
 obj-$(CONFIG_USB_DA8XX) += da8xx.o
 obj-$(CONFIG_USB_AM35X) += am35x.o
+obj-$(CONFIG_USB_PIC32) += pic32_usb.o
