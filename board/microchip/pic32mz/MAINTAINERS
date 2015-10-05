@@ -1,6 +1,0 @@
-MALTA BOARD
-M:	Purna Chandra Mandal <purna.mandal@microchip.com>
-S:	Maintained
-F:	board/microchip/pic32mz/
-F:	include/configs/pic32mzsk.h
-F:	configs/pic32mz_defconfig
