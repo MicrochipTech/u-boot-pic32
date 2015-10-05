@@ -154,6 +154,9 @@ ulong pic32_set_refclk(int bus, int parent_rate, int rate, int parent_id)
 
 	reg = (void __iomem *)(REFO1CON + (bus - 1) * 0x20);
 
+	/* disable clk */
+	writel(REFO_ON | REFO_OE, reg + _CLR_OFFSET);
+
 	/* wait till previous src change is active */
 	for (;;) {
 		v = readl(reg);
