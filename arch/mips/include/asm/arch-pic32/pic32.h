@@ -30,11 +30,7 @@
 #define SPLLCON		(OSC_BASE + 0x1220)
 #define REFO1CON	(OSC_BASE + 0x1280)
 #define REFO1TRIM	(OSC_BASE + 0x1290)
-#ifdef CONFIG_TARGET_PIC32MZSK
-#define PB1DIV		(OSC_BASE + 0x1300)
-#else
 #define PB1DIV		(OSC_BASE + 0x1340)
-#endif
 
 /* Reset Control Registers */
 #define RESET_BASE	0xbf800000

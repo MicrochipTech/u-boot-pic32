@@ -265,9 +265,7 @@ void clk_init(void)
 	pic32_set_refclk(4, pll_hz, CONFIG_SYS_PIC32_REFO4_HZ, ROCLK_SRC_SPLL);
 	debug("refosc4 Speed: %lu MHz\n", pic32_get_refclk(4) / 1000000);
 #endif
-#ifdef CONFIG_TARGET_PIC32MZDASK
 	mpll_init();
-#endif
 }
 
 #ifdef CONFIG_CMD_CLK
