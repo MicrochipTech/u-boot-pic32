@@ -297,7 +297,7 @@
 		"fi \0"						\
 								\
 	"mmcargs=setenv bootargs ${extraargs} "			\
-		"root=/dev/mmcblockp2 init=linuxrc "		\
+		"root=/dev/mmcblk0p2 init=linuxrc "		\
 		"rootdelay=10 rootwait ro\0"			\
 	"mmcloadenv=fatload mmc 0 ${uenvaddr} ${uenvfile}\0"	\
 	"mmcloadscr=fatload mmc 0 ${uenvaddr} ${scriptfile}\0"	\
