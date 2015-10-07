@@ -266,11 +266,6 @@
 	"uenvaddr="__stringify(CONFIG_SYS_ENV_ADDR)"\0"		\
 	"scriptfile=boot.scr\0"					\
 	"ubootfile=u-boot.bin\0"				\
-	"ipaddr=10.41.21.199\0"					\
-	"ethaddr=00:04:A3:3E:37:D2\0"				\
-	"serverip=10.41.21.193\0"				\
-	"gatewayip=10.41.21.1\0"				\
-	"netmask=255.255.0.0\0"					\
 	"nfsrootpath=/srv/nfsboot\0"				\
 	"importbootenv= "					\
 		"env import -t -r ${uenvaddr} ${filesize};\0"	\
