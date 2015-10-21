@@ -341,8 +341,7 @@
 			"echo Loaded environment ${uenvfile}; "	\
 			"run importbootenv; "			\
 		"fi; "						\
-		"echo bootcmd_uenv ${bootcmd_uenv}; "		\
-		"if test -n ${bootcmd_uenv} ; then "		\
+		"if test -n \"${bootcmd_uenv}\" ; then "	\
 			"echo Running bootcmd_uenv ...; "	\
 			"run bootcmd_uenv; "			\
 		"fi; "						\
