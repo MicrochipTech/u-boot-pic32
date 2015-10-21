@@ -108,17 +108,12 @@ static void __def_musb_init(void)
 	/* Enable the VBUS switch: PB5 */
 	gpio_request(vbus_gpio, "vbuson");
 	gpio_direction_output(vbus_gpio, 1);
-
-	/* Enable Pull Down resistor on USBID/RF3 to enable Host mode */
-	writel(0x08, CNPDSET(PIC32_PORT_F)); /* CNPDF3 = 1 */
 }
 
 static void __def_musb_exit(void)
 {
 	int vbus_gpio = GPIO_PORT_PIN(PIC32_PORT_B, 5);
 
-	/* Disable Pull Down resistor on USBID/RF3 to disable Host mode */
-	writel(0x08, CNPDCLR(PIC32_PORT_F)); /* CNPDF3 = 0 */
 	/* Reset the usb state machine */
 
 	/* Disable the VBUS switch */
