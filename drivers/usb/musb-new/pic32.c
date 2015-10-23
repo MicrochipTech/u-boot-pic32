@@ -103,22 +103,10 @@ static irqreturn_t pic32_interrupt(int irq, void *hci)
 
 static void __def_musb_init(void)
 {
-	int vbus_gpio = GPIO_PORT_PIN(PIC32_PORT_B, 5);
-
-	/* Enable the VBUS switch: PB5 */
-	gpio_request(vbus_gpio, "vbuson");
-	gpio_direction_output(vbus_gpio, 1);
 }
 
 static void __def_musb_exit(void)
 {
-	int vbus_gpio = GPIO_PORT_PIN(PIC32_PORT_B, 5);
-
-	/* Reset the usb state machine */
-
-	/* Disable the VBUS switch */
-	gpio_set_value(vbus_gpio, 0); /* PB5 */
-	gpio_free(vbus_gpio);
 }
 
 void board_musb_init(void) __attribute__((weak, alias("__def_musb_init")));
