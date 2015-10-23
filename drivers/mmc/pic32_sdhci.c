@@ -71,6 +71,7 @@ int pic32_sdhci_init(u32 regbase, u32 max_clk, u32 min_clk)
 
 	host->name	= DRIVER_NAME;
 	host->ioaddr	= (void *)regbase;
+	host->quirks	= SDHCI_QUIRK_NO_HISPD_BIT;
 
 	ret = pic32_sdhci_set_shared(host, 0x1, 0x1);
 	if (ret)
