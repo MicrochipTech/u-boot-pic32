@@ -142,7 +142,7 @@
  */
 #define CONFIG_SYS_PHY_ADDR		0 /* LAN87XX */
 #define CONFIG_ARP_TIMEOUT		500 /* millisec */
-#define CONFIG_NET_RETRY_COUNT		1
+#define CONFIG_NET_RETRY_COUNT		20
 #define CONFIG_SYS_RX_ETH_BUFFER	8
 /*
  * BOOTP options
